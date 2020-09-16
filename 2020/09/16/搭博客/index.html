@@ -29,13 +29,15 @@
 
     <!-- OpenGraph -->
  
-    <meta property="og:type" content="article">
+    <meta name="description" content="今天用hexo框架搭了一个博客 配置环境 node.js git hexo我用的都是最新版本的配置SSH key使用GitBash检查存在的SSH密钥1cd ~&#x2F;. ssh 然后再输入下边的命令后，按回车键3次1ssh-keygen -t rsa -C &quot;xxx@xx.com&quot; #引号里是注册github邮箱的地址 然后把SSH密钥粘贴在在github的个人设置中检测是否成功1">
+<meta property="og:type" content="article">
 <meta property="og:title" content="搭博客">
 <meta property="og:url" content="http://example.com/2020/09/16/%E6%90%AD%E5%8D%9A%E5%AE%A2/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="今天用hexo框架搭了一个博客 配置环境 node.js git hexo我用的都是最新版本的配置SSH key使用GitBash检查存在的SSH密钥1cd ~&#x2F;. ssh 然后再输入下边的命令后，按回车键3次1ssh-keygen -t rsa -C &quot;xxx@xx.com&quot; #引号里是注册github邮箱的地址 然后把SSH密钥粘贴在在github的个人设置中检测是否成功1">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-09-16T09:39:48.000Z">
-<meta property="article:modified_time" content="2020-09-16T09:39:48.170Z">
+<meta property="article:modified_time" content="2020-09-16T11:21:54.169Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -191,7 +193,37 @@
     <article class="post content-card">
         <div class="post__header"> </div>
         <div class="post__content">
-            
+            <p>今天用hexo框架搭了一个博客</p>
+<h2 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h2><ul>
+<li>node.js</li>
+<li>git</li>
+<li>hexo<br>我用的都是最新版本的<h2 id="配置SSH-key"><a href="#配置SSH-key" class="headerlink" title="配置SSH key"></a>配置SSH key</h2>使用GitBash检查存在的SSH密钥<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/. ssh</span><br></pre></td></tr></table></figure>
+然后再输入下边的命令后，按回车键3次<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;xxx@xx.com&quot; #引号里是注册github邮箱的地址</span><br></pre></td></tr></table></figure>
+然后把SSH密钥粘贴在在github的个人设置中<h2 id="检测是否成功"><a href="#检测是否成功" class="headerlink" title="检测是否成功"></a>检测是否成功</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>接着配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;github用户名&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;github注册的邮箱&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="写博客"><a href="#写博客" class="headerlink" title="写博客"></a>写博客</h2><p>现在我就是在用Markdown语法来写博客<br>1.先安装hexo框架</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo</span><br></pre></td></tr></table></figure>
+
+<p>2.在电脑上新建一个文件夹来存放自己的代码</p>
+<figure class="highlight bash "><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;s&#x2F;workspaces&#x2F;xxx&#x2F;</span><br><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+
+<p>3.生成和启动服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g  #生成</span><br><span class="line">hexo s  #启动服务</span><br></pre></td></tr></table></figure>
+
+<h2 id="选择主题"><a href="#选择主题" class="headerlink" title="选择主题"></a>选择主题</h2><p>在官方的主题中选择一下博客的主题，我选的是比较简洁的一个模板</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;s&#x2F;workspaces&#x2F;xxx&#x2F;</span><br><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;ChrAlpha&#x2F;hexo-theme-cards.git themes&#x2F;cards&#x2F;</span><br></pre></td></tr></table></figure>
+
+<p>同时还要修改<code>_config.yml</code>中的<code>theme:landspace``为</code>theme:cards```，然后重新生成</p>
+<h2 id="上传到github"><a href="#上传到github" class="headerlink" title="上传到github"></a>上传到github</h2><p>继续修改<code>_config.yml</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:xxx&#x2F;xxx.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+<p>然后在gitbash中输入<code>hexo d</code>将代码全部提交</p>
+
         </div>
          
         <div class="post-footer__meta">
